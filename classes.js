@@ -31,8 +31,20 @@
 
 //Code Here
 
+class Employee {
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
 
-
+  makeWidget() {
+    return (this.first_name + ' ' + this.last_name + ' ' + 'Widget')
+  }
+}
+var user = new Employee('Dave', 'Smith', 'davesmith@yahoo.com', 30)
+console.log(user)
 ////////// PROBLEM 2 //////////
 
 /*
@@ -51,7 +63,18 @@
 
 //Code Here
 
-
+class Manager extends Employee {
+  constructor(first_name, last_name, email, age) {
+    super(first_name, last_name, email, age)
+    this.reports = []
+  }
+  hire(employee) {
+    this.reports.push(employee)
+  }
+  fire(index) {
+    this.reports.splice(index, 1)
+  }
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -76,7 +99,42 @@
 */
 
 //Code Here
-
+class ProgressiveManager extends Manager {
+  constructor(first_name, last_name, email, age) {
+    super(first_name, last_name, email, age)
+    this.title = 'Not a manager';
+    this.bonus = 0;
+  }
+  hire(employee) {
+    this.reports.push(employee);
+    const length = this.hire.length;
+    switch (true) {
+      case length <= 3:
+        this.title = 'Barely Manager';
+        break;
+      case 4 <= length < 11:
+        this.title = 'Mostly Manager';
+        break;
+      case 11 <= length < 51:
+        this.title = 'Manager';
+        break;
+      case 51 <= length < 101:
+        this.title = 'Manager Plus';
+        break;
+      case length > 100:
+        this.title = 'Bestest Manager';
+        break;
+      default:
+        this.title = 'Not a Manager'
+    }
+  }
+  fire(index) {
+    if (this.reports.length) {
+      this.reports.splice(index, 1);
+      this.bonus += 100
+    }
+  }
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
@@ -103,5 +161,3 @@
 */
 
 //Code Here
-
-

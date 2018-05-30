@@ -44,14 +44,28 @@ var employees = [
 // Do not edit the code above.
 
 /*
-  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array above and perform the following:
+  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array 
+  above and perform the following:
     1. If employee's first name is Theo, remove that employee because he just got fired.
     2. If the employee's first name is Lorie, change her department to 'HR'.
     3. Return the updated employee array.
 */
 
 //Code Here
+var employeeUpdater = () => {
+  for (var i=0; i<employees.length; i++) {
+    if (employees[i].firstName === "Theo") {
+      employees.splice(i,1);
+    }
+    if (employees[i].firstName === "Lorie") {
+      employees[i].department = "HR";
+    }
+  }
+  return employees;
+}
 
+employeeUpdater();
+  
 
 
 ////////// PROBLEM 2 //////////
@@ -62,13 +76,26 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 /*
   The array above represents IDs tied to reported workplace accidents. 
-  An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are.
+  An employee accidentally entered in duplicates to array, making it look as though there are more accidents 
+  this year than there actually are.
     1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents array.
     2. Use nested for loops to check for duplicate numbers, and then remove the duplicates from the array.
     3. Return the updated array.
 */
 
 //Code Here
+
+var removeDuplicates = (arr) => {
+  for(var i = 0; i < arr.length; i++) {
+    for(var j = i + 1; j < arr.length; j++) {
+      if(arr[i] === arr[j]) {
+        arr.splice(i, 1)
+        i--
+      }
+    }
+  }
+  return arr
+}
 
 
 
@@ -91,12 +118,12 @@ var cat = {
 // Do not edit the code above.
 
 /*
-  Fluffy has two friends, Grumpy and Lazy Bones. 
+  
     1. Assign the value of Grumpy's 2nd activity to the grumpyActivity variable below.
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
 
-//Code Here
+//Code HereFluffy has two friends, Grumpy and Lazy Bones. 
 var grumpyActivity;
 var fluffy2ndFriend;
 

@@ -23,6 +23,7 @@ var carDetails = {
 
 //Code Here
 
+var {color, make, model, year} = carDetails
 
 
 ////////// PROBLEM 2 //////////
@@ -35,7 +36,7 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
-  
+  var { title, firstName, lastName } = obj;
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -57,6 +58,23 @@ function greeting( obj ) {
 
 
 
+var obj1 = {
+  utah: 1,
+  california: 2,
+  texas: 3,
+  arizona: 4
+}
+function totalPopulation(obj1) {
+    var { utah, california, texas, arizona } = obj1;
+    var total = 0
+    for (let key in obj1) {
+         total += obj1[key]
+    }
+    return total
+}
+totalPopulation(obj1);
+
+
 ////////// PROBLEM 4 //////////
 
 /*
@@ -68,6 +86,21 @@ function greeting( obj ) {
 */
 
 //Code Here
+let obj2 = {
+  carb: "Brown rice",
+  fat: "Almonds",
+  protein: "Whey"
+}
+
+function ingredients(obj2) {
+var { carb, fat, protein } = obj2;
+let newIng = [];
+for ( let i in obj2 ) {
+  newIng.push(obj2)
+}
+return newIng;
+}
+ingredients(obj2)
 
 
 
@@ -87,7 +120,19 @@ function greeting( obj ) {
 
 //Code Here
 
+let obj3 = {
+  first: 1,
+  second: 2,
+  third: 3
+}
 
+function largeNumbers({first, second, third}) {
+for (let i in obj3) {
+    if( i <= 1 ) {
+      return i
+    }
+  }
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -99,4 +144,10 @@ function greeting( obj ) {
 
 //Code Here
 
+
+let numberGroups = {
+  a: [1,2,3],
+  b: [4,5,6],
+  c: [7,8,9]
+}
 
